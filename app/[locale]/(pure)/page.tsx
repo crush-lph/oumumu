@@ -1,10 +1,12 @@
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import React from 'react';
 
-const page = () => {
+const page = async () => {
+  const t = await getTranslations();
   return (
     <div>
-      <h1>Hello,oumomo</h1>
+      <h1>{t('hello')}</h1>
       <Link href='/dashboard'>dashboard</Link>
     </div>
   );

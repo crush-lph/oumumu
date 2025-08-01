@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 const layout = ({ children }: { children: ReactNode }) => {
-  return <div>{children}</div>;
+  return <>{children}</>;
 };
 
 export default layout;

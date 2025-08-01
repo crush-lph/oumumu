@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default async function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
