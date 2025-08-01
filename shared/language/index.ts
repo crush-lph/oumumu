@@ -27,11 +27,5 @@ export const getLangList = (t: Translator) => [
   }
 ];
 
-/**
- * 检查语言是否合法
- * @param lang 待检查的语言字符串
- * @returns 如果语言合法返回 true，否则返回 false
- */
-export const isLegalLang = (lang: string) => {
-  return Object.values(Language).includes(lang as Language);
-};
+/** 支持的语言 */
+export const locales = Object.values(Language);

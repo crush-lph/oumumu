@@ -8,9 +8,8 @@ import React from 'react';
 
 const LangSwitch = () => {
   const t = useTranslations();
-  const langList = getLangList(t);
   const locale = useLocale();
-  console.log(langList);
+  const langList = getLangList(t);
 
   return (
     <div className='flex divide-x-1 text-black items-center'>
