@@ -1,0 +1,33 @@
+import MD5 from '\x63\x72\x79\x70\x74\x6f\x2d\x6a\x73\x2f\x2f\x6d\x64\x35';
+
+class Crypt {
+  private salt: string;
+  constructor() {
+    this['\x73\x61\x6c\x74'] =
+      '\x4c\x41\x41\x36\x65\x64\x47\x48\x42\x6b\x63\x63\x33\x65\x54\x69\x4f\x49\x52\x66\x67\x38\x39\x62\x75\x39\x4f\x44\x41\x36\x50\x42';
+  }
+  getSaltValue() {
+    return this['\x73\x61\x6c\x74'];
+  }
+  encryptParams(params: Record<string, any>, bodyStr: string = '') {
+    if (typeof window === 'undefined') return '';
+    const newKeys = window['\x4f\x62\x6a\x65\x63\x74']['\x6b\x65\x79\x73'](params)['\x73\x6f\x72\x74']();
+    let newStr = '';
+    newKeys['\x66\x6f\x72\x45\x61\x63\x68']((key) => {
+      newStr += key + params[key] + this['\x73\x61\x6c\x74'];
+    });
+    const tmp = MD5(newStr + bodyStr)['\x74\x6f\x53\x74\x72\x69\x6e\x67']();
+    let sign = '';
+    let i = 0,
+      j = tmp['\x6c\x65\x6e\x67\x74\x68'] - 1;
+    for (; i < tmp['\x6c\x65\x6e\x67\x74\x68']; i++, j--) {
+      if (i >= j) break;
+      sign += (window['\x70\x61\x72\x73\x65\x49\x6e\x74'](tmp[i], 16) ^
+        window['\x70\x61\x72\x73\x65\x49\x6e\x74'](tmp[j], 16))['\x74\x6f\x53\x74\x72\x69\x6e\x67'](16);
+    }
+    const result = sign + tmp['\x73\x75\x62\x73\x74\x72\x69\x6e\x67'](i);
+    return result;
+  }
+}
+const myCrypt = new Crypt();
+export default myCrypt;

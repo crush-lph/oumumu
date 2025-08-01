@@ -9,17 +9,25 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "init:dev": "cp .env.example .env.local",
+    "init:test": "cp .env.example.test .env.local",
+    "init:prod": "cp .env.example.prod .env.local"
   },
   "dependencies": {
+    "@microsoft/fetch-event-source": "^2.0.1",
+    "axios": "^1.11.0",
+    "crypto-js": "^4.2.0",
     "next": "15.4.4",
     "next-intl": "^4.3.4",
     "react": "19.1.0",
+    "react-cookie": "^7.2.2",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
