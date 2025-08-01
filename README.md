@@ -48,6 +48,8 @@ oumomo/
 ├── pnpm-lock.yaml             # 依赖锁定文件
 ├── postcss.config.mjs         # PostCSS 配置
 ├── public/                    # 静态资源
+├── config/                    # 基础配置
+├── types/                     # 基础类型
 ├── services/                  # API 服务
 ├── shared/                    # 共享工具
 │   ├── index.ts               # 导出文件

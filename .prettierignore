@@ -4,6 +4,7 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 
+
 # Build outputs
 .next/
 out/
@@ -51,3 +52,4 @@ public/
 next.config.*
 tailwind.config.*
 postcss.config.*
+*.yml
