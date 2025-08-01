@@ -1,6 +1,6 @@
 'use client';
 
-import { Language } from '@/types';
+import { Language } from '@/shared/language';
 import { useLocale as useL } from 'next-intl';
 
 export const useLocale = () => {
