@@ -2,8 +2,8 @@ import { Cookies } from 'react-cookie';
 
 import axios, { AxiosRequestConfig } from 'axios';
 
-import { LANGUAGE_HEADER_KEY_MAP } from '@/shared/language';
-import { BASE_RESP } from '@/types';
+import { Language, LANGUAGE_HEADER_KEY_MAP } from '@/shared/language';
+import type { BASE_RESP } from '@/types';
 
 import { removeEmpty } from './removeEmpty';
 import clientCrypt from './cryptParams.client';
@@ -14,7 +14,7 @@ const { myCrypt } = require('./cryptParams.ts');
 
 const isClient = typeof window !== 'undefined';
 
-let baseURL = isClient ? '/' : process.env.NEXT_PUBLIC_BASE_URL || 'https://oumomo.ai';
+const baseURL = isClient ? '/' : process.env.NEXT_PUBLIC_BASE_URL || 'https://oumomo.ai';
 
 export const request = axios.create({
   baseURL: baseURL,
@@ -24,7 +24,7 @@ export const request = axios.create({
   maxRedirects: 1
 });
 
-let isModalOpen = false;
+const isModalOpen = false;
 
 // ============================== 请求拦截器 ==============================
 request.interceptors.request.use(
@@ -57,7 +57,7 @@ request.interceptors.request.use(
       }
     }
     // 添加、获取cookie信息
-    let locale: string, region, ssrDebug, ssrDebugAll;
+    let locale: Language, region, ssrDebug, ssrDebugAll;
     if (typeof window !== 'undefined') {
       const pathname = window?.location?.pathname ?? '';
       const cookieStore = new Cookies();

@@ -1,3 +1,7 @@
 {
-  "hello": "你好"
+  "hello": "你好",
+  "language": {
+    "en": "English",
+    "zh": "简体中文"
+  }
 }
