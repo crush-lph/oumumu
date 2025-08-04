@@ -1,28 +1,8 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import React from 'react';
+import { Language } from '@/shared/language';
+import { hasLocale } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
-import { Language } from '@/shared/language';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-  display: 'swap'
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap'
-});
-
-export const metadata: Metadata = {
-  title: 'oumomo',
-  description: 'oumomo'
-};
-
 export default async function RootLayout({
   children,
   params
@@ -37,12 +17,5 @@ export default async function RootLayout({
     notFound();
   }
 
-  return (
-    <html lang='en'>
-      <head></head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
